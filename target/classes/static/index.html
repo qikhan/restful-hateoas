@@ -13,9 +13,20 @@
 </head>
 <body ng-app="QApplication">
 	<div class="container">
-		<h1>Angular Application</h1>
+		<nav "navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Angular Application</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#/employees">Employee</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		<div ng-view class="view-animate"></div>
-	</div>	
+	</div>
 	<script type="text/javascript" src="js/lib/angular/angular.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular/angular-loader.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular/angular-animate.min.js"></script>
@@ -24,10 +35,8 @@
 	<script type="text/javascript" src="js/lib/angular/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular/angular-sanitize.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular/angular-touch.min.js"></script>
-	
 	<script type="text/javascript" src="js/lib/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/lib/bootstrap/js/ui-bootstrap.min.js"></script>
-	
 	<script src="app/app.js"></script>
 	<script src="app/employee/employee.js"></script>
 	<script src="app/employee/employee-resource.js"></script>

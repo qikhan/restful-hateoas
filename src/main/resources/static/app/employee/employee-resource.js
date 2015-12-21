@@ -22,8 +22,14 @@ angular.module('EmployeeResource', ['ngResource'])
 					 url : URL_CONFIG.URL_ALL,
 					 params : {},
 					 isArray : true
+				 },
+				 get : {
+					 method : "GET",					 
+					 params : {},
+					 isArray : false
 				 }
-			 }  
+
+			   }	  
 	   );
    }
 ])

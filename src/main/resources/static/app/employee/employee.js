@@ -8,20 +8,24 @@ angular.module('EmployeeModule',
 .controller('EmployeeListCtrl', 
 		[
 		 '$scope',
+		 '$location',
 		 'Employee',
-		 function($scope, Employee) {
+		 function($scope, $location, Employee) {
 			 
-			 $scope.employees = {};
+			 $scope.employees = null;
 			 
 			 Employee.all({},
 				function(response) {
-				 console.log("Success " + response.length);
 				 $scope.employees = response;
 	 			},
 	 			function(response) {
-	 				console.log("error");
+	 				alert("Failed to load data");
 	 			}
 			 ); 
+			 
+			 $scope.goToAdd = function() {
+				 $location.path('/employee/add');
+			 }
 		 }
 		 ]
 )
@@ -29,9 +33,24 @@ angular.module('EmployeeModule',
 .controller('EmployeeEditCtrl', 
 		[
 		 '$scope',
+		 '$routeParams',
 		 'Employee',
-		 function($scope, Employee) {
+		 function($scope, $routeParams, Employee) {
 			 
+			 $scope.employee = {};
+			 console.log("get detail of =" + $routeParams.id);
+			 Employee.get({id:$routeParams.id},
+				function(response) {
+				 	$scope.employee = response;
+	 			},
+	 			function(response) {
+	 				alert("Failed to load data");
+	 			}
+			 ); 
+			 
+			 $scope.save = function() {
+				 
+			 }
 		 }
 		 ]
 )
@@ -42,6 +61,11 @@ angular.module('EmployeeModule',
 		 'Employee',
 		 function($scope, Employee) {
 			 
+			 $scope.employee = {};
+			 
+			 $scope.create = function() {
+				 
+			 }			 
 		 }
 		 ]
 )
