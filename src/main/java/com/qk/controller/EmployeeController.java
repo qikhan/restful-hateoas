@@ -28,7 +28,7 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 
-	@RequestMapping(value = "/employees/", method = RequestMethod.GET)
+	@RequestMapping(value = "/employees", method = RequestMethod.GET)
 	@ResponseBody
 	public HttpEntity<List<Employee>> getAll() {
 
@@ -57,7 +57,7 @@ public class EmployeeController {
 		return new ResponseEntity<Employee>(employee, HttpStatus.NOT_FOUND);
 	}
 
-	@RequestMapping(value = "/employee/", method = RequestMethod.POST)
+	@RequestMapping(value = "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Void> createUser(@RequestBody Employee employee) {
 		System.out.println("Creating Employee " + employee.getFirstName());
 
