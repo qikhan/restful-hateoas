@@ -26,6 +26,22 @@ angular.module('EmployeeModule',
 			 $scope.goToAdd = function() {
 				 $location.path('/employee/add');
 			 }
+			 
+			 $scope.delete = function(id) {
+				 Employee.delete({id:id},
+					function(response) {
+					 	for(var i=0; i<$scope.employees.length; i++) {
+					 		if ($scope.employees[i].eid == id) {
+					 			$scope.employees.splice(i,1);
+					 			return;
+					 		}
+					 	}
+		 			},
+		 			function(response) {
+		 				alert("Failed to delete data");
+		 			}
+				 );
+			 }
 		 }
 		 ]
 )
@@ -38,8 +54,7 @@ angular.module('EmployeeModule',
 		 function($scope, $routeParams, Employee) {
 			 
 			 $scope.employee = {};
-			 console.log("get detail of =" + $routeParams.id);
-			 Employee.get({id:$routeParams.id},
+			 Employee.get({id:$routeParams.id},				 
 				function(response) {
 				 	$scope.employee = response;
 	 			},
@@ -50,6 +65,16 @@ angular.module('EmployeeModule',
 			 
 			 $scope.save = function() {
 				 
+				 Employee.update(
+					{id:$scope.employee.eid},
+					$scope.employee,
+					function(response) {
+					 	alert("Saved");
+		 			},
+		 			function(response) {
+		 				alert("Failed to update data");
+		 			}
+				 );				 
 			 }
 		 }
 		 ]
@@ -60,12 +85,24 @@ angular.module('EmployeeModule',
 		 '$scope',
 		 'Employee',
 		 function($scope, Employee) {
-			 
-			 $scope.employee = {};
+			
+			 $scope.employee = null;
 			 
 			 $scope.create = function() {
 				 
-			 }			 
+				 Employee.create(
+					{},
+					$scope.employee,
+					function(response) {
+					 	alert("Created");
+					 	$scope.employee.firstName = "";
+					 	$scope.employee.lastName = "";
+		 			},
+		 			function(response) {
+		 				alert("Failed to save data");
+		 			}
+				 );				 
+			 }
 		 }
 		 ]
 )

@@ -27,8 +27,22 @@ angular.module('EmployeeResource', ['ngResource'])
 					 method : "GET",					 
 					 params : {},
 					 isArray : false
+				 },
+				 update : {
+					 method : "PUT",					 
+					 params : {},
+					 isArray : false
+				 },
+				 create : {
+					 method : "POST",					 
+					 params : {},
+					 isArray : false
+				 },
+				 delete : {
+					 method : "DELETE",					 
+					 params : {},
+					 isArray : false
 				 }
-
 			   }	  
 	   );
    }

@@ -12,6 +12,7 @@
 						</th>
 						<th class="col-md-5">First Name</th>
 						<th class="col-md-5">Last Name</th>
+						<th class="col-sm-1"></th>
 					</thead>
 					<tbody>
 						<tr ng-repeat="employee in employees | orderBy : 'firstName' ">
@@ -19,6 +20,8 @@
 									class="glyphicon glyphicon-chevron-right"></span></a></td>
 							<td>{{employee.firstName}}</td>
 							<td>{{employee.lastName}}</td>
+							<td><a ng-click="delete(employee.eid)"><span
+									class="glyphicon glyphicon-remove"></span></a></td>
 						</tr>
 					</tbody>
 				</table>
