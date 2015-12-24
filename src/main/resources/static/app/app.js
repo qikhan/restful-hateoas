@@ -23,7 +23,7 @@ angular.module('QApplication',
         controller: 'EmployeeAddCtrl'
       }).
       otherwise({
-        redirectTo: '/employees'
+        redirectTo: '/'
       });
   }]);
   
