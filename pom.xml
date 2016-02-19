@@ -9,8 +9,9 @@
 	</parent>
 	<groupId>qk.springrestful</groupId>
 	<artifactId>restful-hateoas</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-
+	<version>1.0.1-SNAPSHOT</version>
+	<!--This defines the packaging type run as maven install -->
+ 	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
